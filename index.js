@@ -94,6 +94,15 @@ app.post('/upload', upload.single('file'), async (req, res) => {
   }
 });
 
+app.get('/products',(req,res)=>{
+  Product.find().then(products=>{
+    res.json(products);
+    }).catch(err=>{
+      console.error(err);
+      res.status(500).json({ message: 'Error fetching products' });
+    })
+})
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
