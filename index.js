@@ -9,8 +9,9 @@ const productrouter = require("./routes/product");
 
 const app = express();
 // cors use for api request from anywhere and also define for one website
-app.use(cors());
-
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
 const PORT = process.env.PORT || 8080;
 async function main() {
   try {
