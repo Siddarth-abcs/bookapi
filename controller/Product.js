@@ -60,7 +60,8 @@ exports.allproducts = (req, res) => {
 
 // update product
 exports.updateProduct = async (req, res) => {
-  const { id, name, price, discountprice, description } = req.body;
+  const id = req.params.id;
+  const { name, price, discountprice, description } = req.body;
   console.log(typeof req.body);
 
   try {
@@ -86,7 +87,7 @@ exports.updateProduct = async (req, res) => {
 exports.deleteProduct = async (req, res) => {
   try {
     const id = String(req.params.id); // Convert id to string
-    console.log(typeof id); // Log the type of id to the console
+    // console.log(typeof id); // Log the type of id to the console
 
     // Attempt to delete the product
     const result = await Product.deleteOne({ _id: id });
