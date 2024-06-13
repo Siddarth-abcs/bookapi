@@ -62,7 +62,6 @@ exports.allproducts = (req, res) => {
 exports.updateProduct = async (req, res) => {
   const id = String(req.params.id);
   const { name, price, discountprice, description } = req.body;
-  console.log(typeof req.body);
 
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
@@ -72,7 +71,7 @@ exports.updateProduct = async (req, res) => {
     );
 
     if (!updatedProduct) {
-      return res.status(404).json({ message: "Product not found" });
+      return res.status(404).json({ message: "Product not found for update" });
     }
 
     res.json({
@@ -80,7 +79,8 @@ exports.updateProduct = async (req, res) => {
       product: updatedProduct,
     });
   } catch (error) {
-    res.status(500).json({ message: "Error updating product", error });
+    console.error("Error updating product:", error);
+    res.status(500).json({ message: "Error updating product", error: error.message });
   }
 };
 
