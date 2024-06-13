@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Middleware Example</title>
+  </head>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  </style>
+  <body>
+    <!-- Form for adding a new product -->
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <h1>Upload Your App</h1>
+      <input type="file" id="appFile" name="file" /><br /><br />
+      <label for="appName">App Name:</label><br />
+      <input type="text" id="appName" name="name" /><br /><br />
+      <label for="appPrice">Price:</label><br />
+      <input type="number" id="appPrice" name="price" /><br /><br />
+      <label for="appDiscountPrice">Discount Price:</label><br />
+      <input
+        type="number"
+        id="appDiscountPrice"
+        name="discountprice"
+      /><br /><br />
+      <label for="appDescription">Description:</label><br />
+      <textarea id="appDescription" name="description"></textarea><br /><br />
+      <button type="submit">Upload</button>
+    </form>
+
+    <!-- Form for updating an existing product -->
+    <form action="/update" method="post" enctype="multipart/form-data">
+      <h1>Update Your App</h1>
+      <input type="hidden" name="_method" value="PUT" />
+      <input
+        type="text"
+        id="id"
+        name="id"
+        placeholder="Product ID"
+      /><br /><br />
+      <label for="appName">App Name:</label><br />
+      <input type="text" id="appName" name="name" /><br /><br />
+      <label for="appPrice">Price:</label><br />
+      <input type="number" id="appPrice" name="price" /><br /><br />
+      <label for="appDiscountPrice">Discount Price:</label><br />
+      <input
+        type="number"
+        id="appDiscountPrice"
+        name="discountprice"
+      /><br /><br />
+      <label for="appDescription">Description:</label><br />
+      <textarea id="appDescription" name="description"></textarea><br /><br />
+      <button type="submit">Update</button>
+    </form>
+  </body>
+</html>
