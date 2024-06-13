@@ -60,7 +60,7 @@ exports.allproducts = (req, res) => {
 
 // update product
 exports.updateProduct = async (req, res) => {
-  const id = req.params.id;
+  const id = String(req.params.id);
   const { name, price, discountprice, description } = req.body;
   console.log(typeof req.body);
 
