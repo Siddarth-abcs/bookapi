@@ -38,11 +38,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || 'mysecretkey',
+    secret: process.env.SESSION_SECRET + Math.random(),
     store: mongostore,
     resave: false,
-    saveUninitialized: false,
-    cookie: { maxAge: 7 * 24  * 60 * 60 * 1000 },
+    saveUninitialized: true,
+    cookie: { 
+      secure: false,
+      maxAge: 7 * 24  * 60 * 60 * 1000 },
   })
 );
 
