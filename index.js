@@ -42,8 +42,7 @@ app.use(
     store: mongostore,
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: true,
-             maxAge: 7 * 24  * 60 * 60 * 1000 },
+    cookie: { maxAge: 7 * 24  * 60 * 60 * 1000 },
   })
 );
 
