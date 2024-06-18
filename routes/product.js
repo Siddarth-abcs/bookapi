@@ -14,8 +14,8 @@ router
   .patch("/update/:id" , controller.updateProduct)
   // cart
   .get("/cart", cartcontroller.getcart)
-  .post("/cart", cartcontroller.addcart)
-  .delete("/cart", cartcontroller.deletecart)
+  .post("/cart/add", cartcontroller.addcart)
+  .delete("/cart/delete", cartcontroller.deletecart)
   
 
 exports.routes = router;
