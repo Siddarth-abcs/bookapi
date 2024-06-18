@@ -10,10 +10,10 @@ exports.getcart = (req, res) => {
     const existingTest = req.session.test.find((test) => test.id === req.body.id);
     // if condition for check and update data all feild required
     if (existingTest) {
-      existingTest.age = req.body.age;
       existingTest.name = req.body.name;
+      existingTest.price = req.body.price;
       existingTest.url = req.body.url;
-      existingTest.email = req.body.email;
+      existingTest.quantity = req.body.quantity;
       console.log("Item already exists", req.session.id, req.body.id);
     } else {
       req.session.test.push(req.body);
