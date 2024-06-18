@@ -39,15 +39,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   session({
     secret: process.env.SESSION_SECRET || 'mysecretkey',
+    store: mongostore,
     resave: false,
     saveUninitialized: false,
-    cookie: { 
-      maxAge: 7 * 24 * 60 * 60 * 1000, // Example: 7 days
-      secure: true,  // Ensures the cookie is only sent over HTTPS
-    },
+    cookie: { maxAge: 7 * 24  * 60 * 60 * 1000 },
   })
 );
-
 
 app.use("/", productrouter.routes);
 
