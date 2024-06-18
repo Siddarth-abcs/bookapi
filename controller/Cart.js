@@ -1,6 +1,7 @@
 exports.getcart = (req, res) => {
     req.session.test = req.session.test || [];
-    console.log(req.session.test)
+    // console.log(req.session.test)
+    // console.log(req.session.id)
     res.json({ test: req.session });
   }
 
@@ -14,10 +15,10 @@ exports.getcart = (req, res) => {
       existingTest.price = req.body.price;
       existingTest.url = req.body.url;
       existingTest.quantity = req.body.quantity;
-      console.log("Item already exists", req.session.id, req.body.id);
+      // console.log("Item already exists", req.session.id, req.body.id);
     } else {
       req.session.test.push(req.body);
-      console.log(req.session.test, "test");
+      // console.log(req.session.test, "test");
     }
     res.send({ test: req.session.test });
   ;

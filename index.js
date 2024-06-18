@@ -39,7 +39,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   session({
     secret: process.env.SESSION_SECRET || 'mysecretkey',
-    store: mongostore,
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 7 * 24  * 60 * 60 * 1000 },
