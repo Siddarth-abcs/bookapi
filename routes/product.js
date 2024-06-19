@@ -12,10 +12,6 @@ router
   .get("/products", controller.allproducts)
   .delete("/delete/:id", controller.deleteProduct)
   .patch("/update/:id" , controller.updateProduct)
-  // cart
-  .get("/cart", cartcontroller.getcart)
-  .post("/cart/add", cartcontroller.addcart)
-  .delete("/cart/delete", cartcontroller.deletecart)
   
 
 exports.routes = router;

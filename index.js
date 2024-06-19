@@ -5,9 +5,6 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const session = require('express-session')
-const MongoStore = require('connect-mongo')
-
 const productrouter = require("./routes/product");
 
 const app = express();
@@ -25,26 +22,11 @@ async function main() {
 }
 main();
 
-// Session configuration
-const mongostore = MongoStore.create({
-  mongoUrl: process.env.MONGO_URL,
-  collectionName: 'sessions',
-});
-
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET || 'mysecretkey',
-    store: mongostore,
-    resave: false,
-    saveUninitialized: false,
-    cookie: { maxAge: 7 * 24  * 60 * 60 * 1000 },
-  })
-);
 
 app.use("/", productrouter.routes);
 
