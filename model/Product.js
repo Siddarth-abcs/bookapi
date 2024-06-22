@@ -7,6 +7,7 @@ const productSchema = new Schema({
   price: Number,
   discountprice: Number,
   description: String,
+  language: { type: String, required: [true] },
 });
 
 exports.Product = mongoose.model("Product", productSchema);

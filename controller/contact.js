@@ -6,7 +6,7 @@ exports.contact = async (req, res) => {
   //   console.log(contact.contact);
   const { name, email, message } = req.body;
   try {
-    const newContact = await new Contact({
+    const newContact = new Contact({
       name,
       email,
       message,

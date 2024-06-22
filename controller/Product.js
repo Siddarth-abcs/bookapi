@@ -20,7 +20,7 @@ exports.uploadfile = async (req, res) => {
     return res.status(400).send("No file uploaded");
   }
 
-  const { name, price, discountprice, description } = req.body;
+  const { name, price, discountprice, description, language } = req.body;
   const uploadedFile = req.file;
   const fileRef = storage.file(uploadedFile.originalname);
 
@@ -38,6 +38,7 @@ exports.uploadfile = async (req, res) => {
       discountprice,
       description,
       url: downloadURL,
+      language,
     });
 
     res.json({ message: "File uploaded successfully!", product: newProduct });
@@ -66,7 +67,7 @@ exports.updateProduct = async (req, res) => {
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
       id,
-      { name, price, discountprice, description },
+      { name, price, discountprice, description, language },
       { new: true }
     );
 
@@ -80,7 +81,9 @@ exports.updateProduct = async (req, res) => {
     });
   } catch (error) {
     console.error("Error updating product:", error);
-    res.status(500).json({ message: "Error updating product", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Error updating product", error: error.message });
   }
 };
 
