@@ -10,3 +10,11 @@ const productSchema = new Schema({
 });
 
 exports.Product = mongoose.model("Product", productSchema);
+
+const cantactSchema = new Schema({
+  name: String,
+  email: String,
+  message: String,
+});
+
+exports.Contact = mongoose.model("Contact", cantactSchema);
