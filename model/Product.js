@@ -31,6 +31,7 @@ const OrderSchema = new Schema({
   orderdate: { type: Date, default: Date.now },
   products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
   totalprice: { type: Number, required: [true] },
+  paymentmethod: { type: String, required: [true] },
 });
 
 exports.Order = mongoose.model("Order", OrderSchema);
