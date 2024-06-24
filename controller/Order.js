@@ -4,7 +4,7 @@ const path = require("path");
 
 exports.Order = async (req, res) => {
   try {
-    const { clientname, clientemail, clientnumber, clientinfo, products, totalprice, paymentmethod } = req.body;
+    const { clientname, clientemail, clientnumber, clientinfo, products, totalprice, paymentmethod, orderdate, orderid, paymentId } = req.body;
 
     // Assuming 'products' in req.body is an array of product IDs
     const order = new Order({
@@ -15,6 +15,9 @@ exports.Order = async (req, res) => {
       products,
       totalprice,
       paymentmethod,
+      orderdate,
+      orderid,
+      paymentId
     });
 
     await order.save();

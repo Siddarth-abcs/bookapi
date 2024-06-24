@@ -32,6 +32,10 @@ const OrderSchema = new Schema({
   products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
   totalprice: { type: Number, required: [true] },
   paymentmethod: { type: String, required: [true] },
+  orderdate: { type: Date, default: new Date()} ,
+  orderid: { type: String, required: [true] },
+  paymentId: { type: String, required: [true] },
+
 });
 
 exports.Order = mongoose.model("Order", OrderSchema);
