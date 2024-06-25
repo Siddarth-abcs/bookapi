@@ -29,15 +29,7 @@ const OrderSchema = new Schema({
   clientnumber: { type: Number, required: true },
   clientinfo: [String],
   orderdate: { type: Date, default: Date.now },
-  products: [
-    {
-      _id: { type: Schema.Types.ObjectId, ref: "Product", required: true },
-      name: { type: String, required: true },
-      price: { type: Number, required: true },
-      quantity: { type: Number, required: true },
-      language: { type: String, required: true }
-    }
-  ],
+  products: [String],
   totalprice: { type: Number, required: true },
   paymentmethod: { type: String, required: true },
   orderid: { type: String, required: true },
