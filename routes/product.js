@@ -13,9 +13,11 @@ router
   .get("/products", controller.allproducts)
   .delete("/delete/:id", controller.deleteProduct)
   .patch("/update/:id", controller.updateProduct)
+  // contact apis
   .post("/contact", contactcontroller.contact)
-  .post("/order", Ordercontroller.Order);
+  .get("/contact", contactcontroller.allcontact)
+  .delete("/contact/:id", contactcontroller.deletecontact)
 
-  
+  .post("/order", Ordercontroller.Order);
 
 exports.routes = router;
