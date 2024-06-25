@@ -24,18 +24,25 @@ exports.Contact = mongoose.model("Contact", cantactSchema);
 
 // order
 const OrderSchema = new Schema({
-  clientname: { type: String, required: [true] },
-  clientemail: { type: String, required: [true] },
-  clientnumber: { type: Number, required: [true] },
+  clientname: { type: String, required: true },
+  clientemail: { type: String, required: true },
+  clientnumber: { type: Number, required: true },
   clientinfo: [String],
   orderdate: { type: Date, default: Date.now },
-  products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
-  totalprice: { type: Number, required: [true] },
-  paymentmethod: { type: String, required: [true] },
-  orderdate: { type: Date, default: new Date()} ,
-  orderid: { type: String, required: [true] },
-  paymentId: { type: String, required: [true] },
-
+  products: [
+    {
+      _id: { type: Schema.Types.ObjectId, ref: "Product", required: true },
+      name: { type: String, required: true },
+      price: { type: Number, required: true },
+      quantity: { type: Number, required: true },
+      language: { type: String, required: true }
+    }
+  ],
+  totalprice: { type: Number, required: true },
+  paymentmethod: { type: String, required: true },
+  orderid: { type: String, required: true },
+  paymentId: { type: String, required: true }
 });
+
 
 exports.Order = mongoose.model("Order", OrderSchema);

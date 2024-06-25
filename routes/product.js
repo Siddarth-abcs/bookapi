@@ -9,15 +9,20 @@ const upload = multer();
 
 router
   .get("/", controller.indexhtml)
-  .post("/upload", upload.single("file"), controller.uploadfile)
+  // product add
   .get("/products", controller.allproducts)
-  .delete("/delete/:id", controller.deleteProduct)
+  .post("/upload", upload.single("file"), controller.uploadfile)
   .patch("/update/:id", controller.updateProduct)
+  .delete("/delete/:id", controller.deleteProduct)
+
   // contact apis
-  .post("/contact", contactcontroller.contact)
   .get("/allcontact", contactcontroller.allcontact)
+  .post("/contact", contactcontroller.contact)
   .delete("/contact/:id", contactcontroller.deletecontact)
 
-  .post("/order", Ordercontroller.Order);
+  // order apis
+  .get("/order", Ordercontroller.getOrder)
+  .post("/order", Ordercontroller.Order)
+  .delete("/order/:id", Ordercontroller.deleteOrder);
 
 exports.routes = router;
