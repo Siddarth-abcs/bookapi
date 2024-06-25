@@ -15,7 +15,7 @@ router
   .patch("/update/:id", controller.updateProduct)
   // contact apis
   .post("/contact", contactcontroller.contact)
-  .get("/contact", contactcontroller.allcontact)
+  .get("/allcontact", contactcontroller.allcontact)
   .delete("/contact/:id", contactcontroller.deletecontact)
 
   .post("/order", Ordercontroller.Order);
