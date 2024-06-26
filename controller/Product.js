@@ -20,7 +20,7 @@ exports.uploadfile = async (req, res) => {
     return res.status(400).send("No file uploaded");
   }
 
-  const { name, price, discountprice, description, language } = req.body;
+  const { name, price, discountprice, description, language, quantity } = req.body;
   const uploadedFile = req.file;
   const fileRef = storage.file(uploadedFile.originalname);
 
@@ -39,6 +39,7 @@ exports.uploadfile = async (req, res) => {
       description,
       url: downloadURL,
       language,
+      quantity,
     });
 
     res.json({ message: "File uploaded successfully!", product: newProduct });

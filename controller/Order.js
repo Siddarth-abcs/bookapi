@@ -4,7 +4,7 @@ const path = require("path");
 
 exports.getOrder = async (req, res) => {
   try {
-    const orders = await Order.find();
+    const orders = await Order.find().populate('products');
     res.status(200).json(orders);
     console.log(orders);
   } catch (err) {
@@ -40,7 +40,7 @@ exports.Order = async (req, res) => {
       orderid,
       paymentId,
     });
-
+    
     await order.save();
     res.status(201).json({ message: "Order placed successfully", order });
   } catch (err) {
