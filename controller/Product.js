@@ -63,7 +63,7 @@ exports.allproducts = (req, res) => {
 // update product
 exports.updateProduct = async (req, res) => {
   const id = String(req.params.id);
-  const { name, price, discountprice, description } = req.body;
+  const { name, price, discountprice, description, language } = req.body;
 
   try {
     const updatedProduct = await Product.findByIdAndUpdate(

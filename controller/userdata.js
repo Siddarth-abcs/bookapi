@@ -1,6 +1,4 @@
-const model = require("../model/Product");
-const User = model.User;
-const path = require("path");
+const User = require("../model/Product").User;
 
 exports.userdata = async (req, res) => {
     try {
@@ -38,4 +36,3 @@ exports.userdata = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
-
