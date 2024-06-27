@@ -2,6 +2,7 @@ const express = require("express");
 const controller = require("../controller/Product");
 const contactcontroller = require("../controller/contact");
 const Ordercontroller = require("../controller/Order");
+const Usercontroller = require("../controller/userdata");
 const multer = require("multer");
 const router = express.Router();
 
@@ -23,6 +24,9 @@ router
   // order apis
   .get("/order", Ordercontroller.getOrder)
   .post("/order", Ordercontroller.Order)
-  .delete("/order/:id", Ordercontroller.deleteOrder);
+  .delete("/order/:id", Ordercontroller.deleteOrder)
+
+  // userdata
+  .get("/user", Usercontroller.userdata);
 
 exports.routes = router;

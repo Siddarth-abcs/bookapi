@@ -44,3 +44,13 @@ const OrderSchema = new Schema({
   });
 
 exports.Order = mongoose.model("Order", OrderSchema);
+
+
+const userSchema = new mongoose.Schema({
+  ip: String,
+  userAgent: String,
+  createdAt: { type: Date, default: Date.now }
+});
+
+// Create a model
+exports.User = mongoose.model('User', userSchema);
