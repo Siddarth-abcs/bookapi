@@ -27,6 +27,6 @@ router
   .delete("/order/:id", Ordercontroller.deleteOrder)
 
   // userdata
-  .post("/user", Usercontroller.userdata);
+  .get("/user", Usercontroller.userdata);
 
 exports.routes = router;
