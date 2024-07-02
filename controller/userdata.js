@@ -1,20 +1,12 @@
+const { request } = require("express");
 const axios = require("axios");
+
 const User = require("../model/Product").User;
 
 exports.userdata = async (req, res) => {
   try {
     // Get IP address of the requester
-    let ip;
-
-    try {
-      const ipResponse = await axios.get("https://api.ipify.org?format=json");
-      ip = ipResponse.data.ip;
-      console.log("User IP address:", ip, typeof ip);
-    } catch (error) {
-      console.error("Error fetching IP address:", error.message);
-      res.status(500).send("Error fetching IP address");
-      return; // Exit the function to prevent further execution
-    }
+    const ip = res.ip;
 
     // Get user-agent information (device and browser details)
     const userAgent = req.headers["user-agent"];
